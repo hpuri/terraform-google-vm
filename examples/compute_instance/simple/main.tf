@@ -23,6 +23,7 @@ module "instance_template" {
   source          = "../../../modules/instance_template"
   region          = var.region
   project_id      = var.project_id
+  subnetwork_project = var.project_id
   subnetwork      = var.subnetwork
   service_account = var.service_account
 }
@@ -31,6 +32,7 @@ module "compute_instance" {
   source            = "../../../modules/compute_instance"
   region            = var.region
   zone              = var.zone
+  subnetwork_project = var.project_id
   subnetwork        = var.subnetwork
   num_instances     = var.num_instances
   hostname          = "instance-simple"
